@@ -3,11 +3,13 @@
 <head>
     <title>Tu Comentario</title>
     <link rel="stylesheet" href="/stylesheets/col.css" >
+    <script src="https://www.google.com/recaptcha/api.js?render=6LeqpyImAAAAANlW5LUrdf-SV4rXq-sG_2XWup0R" async defer></script>
     
 </head>
 <body> 
      
-     <form action="/" method="post">
+     <form action="/" method="post"
+     action="https://formsubmit.com/.com" method="POST">
         <h3>Registrate</h3>
         <label for="Nombre">Nombre:</label>
         <input type="text" name="Nombre" id="Nombre" placeholder="Escribe Tu Nombre" >
@@ -29,8 +31,11 @@
 
         <label for="Mensaje">Mensaje:</label>
         <textarea name= "Comentario" id="Mensaje" placeholder="Escribe Tu Mensaje"></textarea>
-
+        <button class="grecaptha" data-sitekey
+        =":6LeqpyImAAAAANlW5LUrdf-SV4rXq-sG_2XWup0R" data-callaback ="onSumit" type></button>
         <input type="submit" value="Listo">
+        <input type="hidden" value="localhost:3000">
+        
 
 
 
