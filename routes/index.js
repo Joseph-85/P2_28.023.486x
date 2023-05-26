@@ -39,7 +39,7 @@ router.post('/',(req,res)=>{
         let Comentario = req.body.Comentario;
         let dt = new Date();
         let time = "";
-        let ip = req.headers["x-forwarded-for"]  || req.socket.remoteAddress;
+        let ip = req.headers["x-forwarded-for"];
         if (ip){
           var list = ip.split(",");
           ip = list[list.length-1];
@@ -86,16 +86,15 @@ let XMLHttp = new XMLHttpRequest();
 XMLHttp.onreadystatechange = function(){
 if(this.readyState == 4 && this.status == 200) {
   let ipwhois = JSON.parse(this.responseText); 
-console.log(ipwhois.country + ' ' + ipwhois.flag.emoji,country,city,);
+console.log(ipwhois.country + ' ' + ipwhois.flag.emojicountry,city,);
 }	
-}
-
-
+}     
+      db.insert (Nombre,email,Comentario,date,time,ip, pais, country);
 
       XMLHttp.open('GET','http://ipwho.is/' + ip, true);
     XMLHttp.send();	
       
-      console.log({Nombre, email, Comentario, date, time, ip, pais, clientCountry})
+      console.log({Nombre, email, Comentario, date, time, ip, pais, country})
       
         res.redirect("/");
       });
