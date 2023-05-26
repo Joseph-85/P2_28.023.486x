@@ -79,3 +79,10 @@ input[type="submit"]{
    cursor: pointer;
 }
 
+
+.grecaptha {
+    margin-left: auto;
+    margin-right: auto;
+    
+
+}
