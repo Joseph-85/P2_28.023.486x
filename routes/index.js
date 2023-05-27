@@ -4,10 +4,6 @@ const db = require ("./DB");
 const SECRET_KEY = "6LeqpyImAAAAAGCsh6gwxvwwb2X9zTC_jSWOD68r";
 const fetch = require('node-fetch');
 
-
-
-
-
 var router = express.Router();
 
 /* GET home page. */
@@ -21,10 +17,9 @@ router.get('/com', function(req, res, next) {
 });
 
 router.post('/',(req,res)=>{
-  const response_key = req.body["g-recaptcha-response"];
-  const secret_key = process.env.KEY_PRIVATE;
+ 
   const url = 
-`https://developers.google.com/recaptcha/docs/verify?secret=${secret_key}&response=${response_key}`;
+`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.KEY_PRIVATE}&response=${req.body["g-recaptcha-response"]}`;
   fetch(url, {
     method: "post",
   })
@@ -33,20 +28,12 @@ router.post('/',(req,res)=>{
   if (google_response.success == true) {
 
 
-      router.post("/",function(req,res,next){
-        let Nombre = req.body.Nombre;
-        let email = req.body.email;
-        let Comentario = req.body.Comentario;
+      router.post("/",function(req,res){
+       
         let dt = new Date();
         let time = "";
-        let ip = req.headers["x-forwarded-for"];
-        if (ip){
-          var list = ip.split(",");
-          ip = list[list.length-1];
-         } else {
-          ip = req.connection.remoteAddress;
-          }
-        let pais = req.body.pais;  
+        let ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+         
 
         if(dt.getHours() >=12){
           time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds() + "PM"; 
@@ -81,32 +68,45 @@ router.post('/',(req,res)=>{
 }
 });
 
-
 let XMLHttp = new XMLHttpRequest();
+var ip_address = '190.206.224.172';
+let auth = '918dc043-079e-41ed-965f-aa3c87119e77';
+let URL = "https://ipfind.co/?auth=" + auth + ip_address;
 XMLHttp.onreadystatechange = function(){
 if(this.readyState == 4 && this.status == 200) {
-  let ipwhois = JSON.parse(this.responseText); 
-console.log(ipwhois.country + ' ' + ipwhois.flag.emojicountry,city,);
-}	
-}     
-      db.insert (Nombre,email,Comentario,date,time,ip, pais, country);
+  let result = JSON.parse(this.responseText); 
+  let _continent = result.continent;
+  let _country = result.country;
+  let _city = result.city;
+  let input_country = documento.gentElemenById( 'country');
+ input_country.value = _continent +"," +_country + ',' + _city;
+}
+}
+XMLHttp.open('GET', URL, true);
+XMLHttp.send();
 
-      XMLHttp.open('GET','http://ipwho.is/' + ip, true);
-    XMLHttp.send();	
-      
-      console.log({Nombre, email, Comentario, date, time, ip, pais, country})
-      
-        res.redirect("/");
-      });
-     
         
-  
-router.get("/For1", function (req,res,next){
+
+      
+      db.insert ();
+
+     
+      
+      console.log({ })
+
+      router.get("/For1", function (req,res,next){
   db.select(function (rows) {
     console.log (rows);
   });
   res.send("ok");
       });
+
+      
+        res.redirect("/");
+      });
+     
+        
+
    
 
 

@@ -30,8 +30,7 @@
 </head>
 <body> 
      
-     <form id="demo-form" action="/"
-     action="https://formsubmit.co/josephortegabrea@gmail.com" method="post">
+     <form id="demo-form" action="/" method="post">
         <h3>Registrate</h3>
         <label for="Nombre">Nombre:</label>
         <input type="text" name="Nombre" id="Nombre" placeholder="Escribe Tu Nombre" >
@@ -55,13 +54,17 @@
         <textarea name= "Comentario" id="Mensaje" placeholder="Escribe Tu Mensaje"></textarea>
 
         <button class="g-recaptcha" data-sitekey
-        ="6LeqpyImAAAAANlW5LUrdf-SV4rXq-sG_2XWup0R" data-callaback ="onSumit"  data-action='submit' type></button>
-        <hr/>
-        <input type="submit" value="Listo">
-        <input type="hidden" value="localhost:3000">
-
-    
+        ="6LeqpyImAAAAANlW5LUrdf-SV4rXq-sG_2XWup0R" data-callaback ="onSumit"  data-action='submit' type></button> 
+       
         
+        <hr/>
+        
+        <input type="submit" value="Listo">
+        <input id ="country "type="hidden" name ="coutry">
+        <input type="hidden" value="localhost:3000">
+        
+        
+
 
      </form>
 

@@ -13,8 +13,8 @@ let db = new sqlite3.Database(":memory:", (err) =>{
 
 
 module.exports = {
-    insert: function (Nombre, email, Comentario, date, time, ip,) {
-        db.run("INSERT INTO For1 (Nombre, email, Comentario,date,time,ip,pais,country) VALUES(?,?,?,?,?,?,$pais,?)", [Nombre, email, Comentario, date, time , ip, clientCountry], function (err) {
+    insert: function (Nombre, email, Comentario, date, time, ip) {
+        db.run("INSERT INTO For1 (Nombre, email, Comentario,date,time,ip,pais,country) VALUES(?,?,?,?,?,?,$pais,?)", [Nombre, email, Comentario, date, time , ip], function (err) {
             if (err) {
                 return console.log(err.message);
 
