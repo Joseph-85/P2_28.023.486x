@@ -1,7 +1,7 @@
 var express = require('express');
 const XMLHttpRequest= require("xhr2");
 const db = require ("./DB");
-const SECRET_KEY = "6LeqpyImAAAAAGCsh6gwxvwwb2X9zTC_jSWOD68r";
+
 const fetch = require('node-fetch');
 
 var router = express.Router();
@@ -17,9 +17,9 @@ router.get('/com', function(req, res, next) {
 });
 
 router.post('/',(req,res)=>{
- 
+ const SECRET_KEY = "6LeqpyImAAAAAGCsh6gwxvwwb2X9zTC_jSWOD68r";
   const url = 
-`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.KEY_PRIVATE}&response=${req.body["g-recaptcha-response"]}`;
+`https://www.google.com/recaptcha/api/siteverify?secret=${process.env["6LeqpyImAAAAAGCsh6gwxvwwb2X9zTC_jSWOD68r"]}&response=${req.body["g-recaptcha-response"]}`;
   fetch(url, {
     method: "post",
   })
@@ -72,7 +72,7 @@ let XMLHttp = new XMLHttpRequest();
 var ip_address = '190.206.224.172';
 let auth = '918dc043-079e-41ed-965f-aa3c87119e77';
 let URL = "https://ipfind.co/?auth=" + auth + ip_address;
-XMLHttp.onreadystatechange = function(){
+XMLHttp.onreadystatechange = function() {
 if(this.readyState == 4 && this.status == 200) {
   let result = JSON.parse(this.responseText); 
   let _continent = result.continent;
