@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Tu Comentario</title>
     <link rel="stylesheet" href="/stylesheets/col.css" >
     <script src="https://www.google.com/recaptcha/api.js?render=6LeqpyImAAAAANlW5LUrdf-SV4rXq-sG_2XWup0R" async defer></script>
@@ -33,7 +35,7 @@
      <form id="demo-form" action="/" method="post">
         <h3>Registrate</h3>
         <label for="Nombre">Nombre:</label>
-        <input type="text" name="Nombre" id="Nombre" placeholder="Escribe Tu Nombre" >
+        <input type="text" name="name" id="name" placeholder="Escribe Tu Nombre" >
 
         <label for="email">Email:</label>
         <input type="email" name="email" id="email" placeholder="Escribe Tu Correo" >
@@ -51,16 +53,16 @@
         </select>
 
         <label for="Mensaje">Mensaje:</label>
-        <textarea name= "Comentario" id="Mensaje" placeholder="Escribe Tu Mensaje"></textarea>
+        <textarea name="comment" id="comment" placeholder="Escribe Tu Mensaje"></textarea>
 
+        <div class="form_group">
         <button class="g-recaptcha" data-sitekey
         ="6LeqpyImAAAAANlW5LUrdf-SV4rXq-sG_2XWup0R" data-callaback ="onSumit"  data-action='submit' type></button> 
-       
+      </div>
         
         <hr/>
         
         <input type="submit" value="Listo">
-        <input id ="country "type="hidden" name ="coutry">
         <input type="hidden" value="localhost:3000">
         
         

@@ -6,15 +6,15 @@ let db = new sqlite3.Database(":memory:", (err) =>{
     }
     console.log("connected to the in-memory SQLite database.");
     
-    db.run("CREATE TABLE IF NOT EXISTS For1 (id INTEGER PRIMARY KEY AUTOINCREMENT, Nombre VARCHAR (50) NOT NULL,email Email NOT NULL, Comentario VARCHAR(10000)NOT NULL,date DATETIME NOT NULL, time TEXT NOT NULL, ip TEXT NOT NULL,pais TEXT NOT NULL,country VARCHAR(10000))");
+    db.run("CREATE TABLE IF NOT EXISTS For1 (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR (50) NOT NULL,email Email NOT NULL, comment TEXT NOT NULL,date DATETIME NOT NULL, time TEXT NOT NULL, ip TEXT NOT NULL,pais TEXT NOT NULL,country TEXT NOT NULL)");
 });
 
 
 
 
 module.exports = {
-    insert: function (Nombre, email, Comentario, date, time, ip) {
-        db.run("INSERT INTO For1 (Nombre, email, Comentario,date,time,ip,pais,country) VALUES(?,?,?,?,?,?,$pais,?)", [Nombre, email, Comentario, date, time , ip], function (err) {
+    insert: function ( name , email, comment, date, time, Ip,pais, country) {
+        db.run("INSERT INTO For1 ( name, email, comment, date,time,ip,pais,country) VALUES(?,?,?,?,?,?,$pais,?)", [name, email, comment, date, time , Ip, pais, country], function (err ) {
             if (err) {
                 return console.log(err.message);
 

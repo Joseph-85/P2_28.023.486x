@@ -86,3 +86,9 @@ input[type="submit"]{
     
 
 }
+
+.form_group {
+    position: relative;
+    --color:rgb(77, 77, 77) ;
+    color: #fff;
+  }
