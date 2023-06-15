@@ -31,6 +31,10 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/For1", usersRouter);
 
+app.get('/views/contactos', function(req, res){
+  res.sendFile (__dirname + '/views/contactos')
+})
+
 
 
 // catch 404 and forward to error handler

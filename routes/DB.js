@@ -28,6 +28,7 @@ module.exports = {
                 throw err;
             }
             callback(rows);
+            res.render('vista', { registros: rows });
         });
     }
 }

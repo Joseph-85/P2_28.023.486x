@@ -5,6 +5,7 @@ const request = require ('request');
 const IP = require ('ip');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
+const app = express();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

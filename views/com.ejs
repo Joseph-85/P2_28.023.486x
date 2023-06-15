@@ -31,18 +31,19 @@
     
 </head>
 <body> 
+
      
      <form id="demo-form" action="/" method="post">
         <h3>Registrate</h3>
         <label for="Nombre">Nombre:</label>
-        <input type="text" name="name" id="name" placeholder="Escribe Tu Nombre" >
+        <input type="text" name="name" id="name" placeholder="Escribe Tu Nombre" value= "<%=datos.name%>" >
 
         <label for="email">Email:</label>
-        <input type="email" name="email" id="email" placeholder="Escribe Tu Correo" >
+        <input type="email" name="email" id="email" placeholder="Escribe Tu Correo" value= "<%=datos.email%>" >
         
         <label for="Venezuela">donde eres:</label>
         <select name="pais">   
-            <option  value="Venezuela">Venezuela</option>
+            <option value="Venezuela">Venezuela</option>
             <option value="Colombia">Colombia</option>
             <option value="Brasil">Brasil</option>
             <option value="Argentina">Argentina</option>
@@ -53,7 +54,7 @@
         </select>
 
         <label for="Mensaje">Mensaje:</label>
-        <textarea name="comment" id="comment" placeholder="Escribe Tu Mensaje"></textarea>
+        <textarea name="comment" id="comment" placeholder="Escribe Tu Mensaje"></textarea> <%=datos.comentario%>
 
         <div class="form_group">
         <button class="g-recaptcha" data-sitekey
@@ -63,7 +64,7 @@
         <hr/>
         
         <input type="submit" value="Listo">
-        <input type="hidden" value="localhost:3000">
+
         
         
 
