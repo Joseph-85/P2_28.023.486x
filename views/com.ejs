@@ -3,6 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <div id="g_id_onload"
+  data-client_id="429201105693-9h9ql9dkuag7rert2nfsaricvf723kl4.apps.googleusercontent.com"
+  data-login_uri="https://accounts.google.com/InteractiveLogin/signinchooser?elo=1&ifkv=Af_xneEvGVjcyOVSN6U_c292fHVm8g7Pbgha_PBrkSe3KICxanKmwUXYBuhhRC7OKXL4GPCBfnBy_g&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
+  data-auto_prompt="false">
+</div>
+<div class="g_id_signin"
+  data-type="standard"
+  data-size="medium"
+  data-theme="outline"
+  data-text="sign_in_with"
+  data-shape="pill"
+  data-logo_alignment="left">
+</div>
+
+
     <title>Tu Comentario</title>
     <link rel="stylesheet" href="/stylesheets/col.css" >
     <script src="https://www.google.com/recaptcha/api.js?render=6LeqpyImAAAAANlW5LUrdf-SV4rXq-sG_2XWup0R" async defer></script>
@@ -36,13 +53,13 @@
      <form id="demo-form" action="/" method="post">
         <h3>Registrate</h3>
         <label for="Nombre">Nombre:</label>
-        <input type="text" name="name" id="name" placeholder="Escribe Tu Nombre" value= "<%=datos.name%>" >
+        <input type="text" name="name" id="name" placeholder="Escribe Tu Nombre"  placeholder=" ">
 
         <label for="email">Email:</label>
-        <input type="email" name="email" id="email" placeholder="Escribe Tu Correo" value= "<%=datos.email%>" >
+        <input type="email" name="email" id="email" placeholder="Escribe Tu Correo"  placeholder=" " >
         
         <label for="Venezuela">donde eres:</label>
-        <select name="pais">   
+        <select name="pais" placeholder=" ">   
             <option value="Venezuela">Venezuela</option>
             <option value="Colombia">Colombia</option>
             <option value="Brasil">Brasil</option>
@@ -54,7 +71,7 @@
         </select>
 
         <label for="Mensaje">Mensaje:</label>
-        <textarea name="comment" id="comment" placeholder="Escribe Tu Mensaje"></textarea> <%=datos.comentario%>
+        <textarea name="comment" id="comment" placeholder="Escribe Tu Mensaje" placeholder=" "></textarea>
 
         <div class="form_group">
         <button class="g-recaptcha" data-sitekey
@@ -63,7 +80,7 @@
         
         <hr/>
         
-        <input type="submit" value="Listo">
+        <button type="submit" > Listo </button>
 
         
         
@@ -72,6 +89,6 @@
      </form>
 
      <hr/>
-     <h2> Quiere regresar a las pagina principal has clis <a href="/">aquí</a> </h2>
+     <h2> Quiere regresar a las pagina principal has clis <a href="/">aquí</a> o quiere ver las <a target="_blank" href="contactos">lista de contactos</a> </h2>
 </body>
 </html>
