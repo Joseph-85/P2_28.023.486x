@@ -9,6 +9,13 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+const bodyParser = require('body-parser');
+const session = require('express-session');
+require('dotenv').config();
+const bcrypt = require('bcrypt');
+
+app.set('view engine', 'ejs');
+
 const request = require ('request');
 require('dotenv').config();
 
@@ -31,9 +38,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/For1", usersRouter);
 
-app.get('/views/contactos', function(req, res){
-  res.sendFile (__dirname + '/views/contactos')
-})
 
 
 

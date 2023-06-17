@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ >
+  <title>Ingrese</title>
+</head>
+<body>
+  <form class="form" action="ingres.ejs" method="post">
+    <h2 class="form_title">Verificacion</h2>
+    <div class="form_container">
+      <div>
+        <input type="text" name="user" id="Username"  placeholder=" ">
+        <label for="Username" class="form_label">Usuario</label>
+        <span ></span>
+      </div>
+      <div >
+        <input type="password" name="pass" id="Password" placeholder=" ">
+        <label for="Password" class="form_label">Contraseña</label>
+        <span ></span>
+      </div>
+     
+      <button type="submit" class="form_submit" > Ingresar </button>
+      <script src="https://accounts.google.com/gsi/client" async defer></script>
+      <div id="g_id_onload"
+         data-client_id="429201105693-9h9ql9dkuag7rert2nfsaricvf723kl4.apps.googleusercontent.com"
+         data-login_uri="http://localhost:3000/auth/google"
+         data-auto_prompt="false">
+      </div>
+      <div
+      div class="g_id_signin"
+      data-type="standard"
+      data-size="medium"
+      data-theme="outline"
+      data-text="sign_in_with"
+      data-shape="pill"
+      data-logo_alignment="left">
+   </div>
+
+    </div>
+</body>
+</html>

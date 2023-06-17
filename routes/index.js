@@ -5,7 +5,7 @@ const request = require ('request');
 const IP = require ('ip');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
-const app = express();
+var app = require('../app');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -16,6 +16,33 @@ router.get('/', function(req, res, next) {
 router.get('/com', function(req, res, next) {
   res.render('com');
 });
+
+router.get('/ingres.ejs', (req, res) => {
+  res.render('ingres');
+ });
+
+ router.post('/ingres.ejs', function(req, res, next) {
+  let user = req.body.user
+  let pass = req.body.pass
+  if (user == process.env.username && pass == process.env.clave)  {
+    db.select(function (rows) {
+      
+      res.render('For1', {rows: rows});
+    });
+  } else {
+    res.render('ingres', { error: 'Datos incorrectos' });
+  }
+})
+
+router.get('/For1', function(req, res, next) {
+  db.select(function (rows) {
+  
+    res.render('contactos', {rows: rows});
+  });
+
+});
+
+
 
 
 router.post('/', function(req, res, next) {  
@@ -56,9 +83,9 @@ for (let d = 0; d  <= 9; d++) {
       if (!error && response.statusCode == 200) {
       const data = JSON.parse(body);
       let country = data.country;
-      console.log({name, email, comment, date ,time, Ip, pais, country});
+      console.log({name, email, comment, date ,time, Ip, country});
 
-      db.insert(name, email, comment, date, time, Ip, pais, country);
+      db.insert(name, email, comment, date, time, Ip, country);
       
       
       const trans = nodemailer.createTransport({
@@ -75,7 +102,7 @@ for (let d = 0; d  <= 9; d++) {
       
         to: ['josephortegabre@gmail.com', 'programacion2ais@dispostable.com'],
       subject: 'Task 3',
-        text: 'Un nuevo ususuario se ha registrado en el formulario:\n' + 'Nombre: ' + name + '\nCorreo: ' + email + '\npais: ' + pais + '\nMensaje: ' + comment +'\nFecha:' + date +' hora: ' + time + '\nIP: ' + Ip + '\nUbicacion: ' + country
+        text: 'Un nuevo ususuario se ha registrado en el formulario:\n' + 'Nombre: ' + name + '\nCorreo: ' + email + '\nMensaje: ' + comment +'\nFecha:' + date +' hora: ' + time + '\nIP: ' + Ip + '\nUbicacion: ' + country
       };
       trans.sendMail(mailOptions, function(error, info){
         if (error) {

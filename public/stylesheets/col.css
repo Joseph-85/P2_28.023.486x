@@ -87,10 +87,12 @@ input[type="submit"]{
 
 }
 
-.form_group {
+.form_group , .g-recaptcha {
     position: relative;
     --color:rgb(77, 77, 77) ;
-    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    background: white
   }
 
   g_id_signin{
