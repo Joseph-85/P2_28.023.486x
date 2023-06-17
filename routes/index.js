@@ -27,7 +27,7 @@ router.get('/ingres.ejs', (req, res) => {
   if (user == process.env.username && pass == process.env.clave)  {
     db.select(function (rows) {
       
-      res.render('For1', {rows: rows});
+      res.render('contactos', {rows: rows});
     });
   } else {
     res.render('ingres', { error: 'Datos incorrectos' });
